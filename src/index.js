@@ -21,5 +21,12 @@ app.use((req,res)=>{
     res.status(404).send("Página no encontrada - 404")
 })
 
+app.use('/credenciales/:profile/photo', (req,res)=>{
+    if(req.params.profile === "Danny"){
+        res.setHeader('Content-Type', 'text/html');
+        res.write("<h1>Bienvenido: " + req.params.profile + "</h1>")
+    }
+})
+
 app.listen(3000)
 console.log('Servidor ejecutandose en el puerto 3000');
